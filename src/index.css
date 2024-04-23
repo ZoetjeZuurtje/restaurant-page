@@ -1,16 +1,22 @@
 :root {
-    --header-color: salmon;
+    --primary-color: whitesmoke;
+    --secondary-color: hsl(60, 48%, 64%);
+    --accent-color: hsl(174, 72%, 20%);
 }
 
 body {
     padding: 0;
     margin: 0;
+
+    background-color: lightgoldenrodyellow;
 }
 
 header {
-    background-color: var(--header-color);
+    background-color: var(--primary-color);
     height: 100px;
+    border-bottom: black 1px solid;
 }
+
 header nav {
     height: 100%;
 
@@ -19,46 +25,32 @@ header nav {
     gap: 30px;
     align-items: end;
 }
-header button {
-    font-size: 22px;
-    padding: 0;
-    width: fit-content;
-    padding: 0 10px;
-    height: 34px;
 
-    background: var(--header-color);
-    border-radius: 3px 3px 0 0;
-    border: solid black 2px;
-    border-bottom: solid transparent 0px;
-    
-    /* For the small banner */
-    position: relative;
-    
+header .button {
+    border: none;
+    padding: 5px 10px;
+
     &:hover {
         cursor: pointer;
     }
-    &.active::after {
-        content: '';
-        display: inline-block;
-        
-        height: 60px;
-        width: 100%;
-        
-        border-radius: 0 0 3px 3px;
-        border: solid black 2px;
-        border-top: solid 0px transparent;
-        
-        
-        position: absolute;
-        left: -2px;
-        bottom: -60px;
 
-        background: var(--header-color);
+    &.active {
+        border: black solid 1px;
+        border-bottom: white solid 1px;
+
+        /* Due to the extra 1px border, it needs to be moved down 1px */
+        position: relative;
+        top: 1px;
+        /* The border then overlaps with the <header> border */
+        z-index: 10;
     }
 }
 
 #content {
     background-color: lightblue;
-    height: 100%;
-    margin-top: 100px;
+    margin: 100px auto;
+
+    border-radius: 25px;
+    width: 80%;
+    padding: 20px;
 }

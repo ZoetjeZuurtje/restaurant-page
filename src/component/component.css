@@ -1,7 +1,74 @@
 .component {
-    width: 80%;
-    border: inset black 5px;
-    background-color: rgba(0, 0, 0, 0.2);
-    margin: 20px auto;
+    --border-width: 1px;
+    --border-color: black;
+    --border-text-color: black;
+    --padding-value: 30px;
+
+    padding: var(--padding-value);
+    padding-top: 0;
+
+    border: solid black 1px;
+    border-top: none;
+
+    background-color: white;
+    
+    margin: 30px 0;
+}
+
+.top-border {
+    --title-padding: 10px;
+
+    overflow-x: hidden;
+    /* Position the new border such that it overlaps with the old one */
+    position: relative;
+    bottom: 1em;
+    right: var(--padding-value);
+    /* Set the padding-bottom to equal the padding of the parent element, to maintain consistency */
+    padding-bottom: var(--padding-value);
+    /* Calculate the width of the border, including the parent element's padding */
+    width: calc(100% + calc(var(--padding-value) * 2));
+    
     text-align: center;
+    
+    & > h2 {
+        display: inline-block;
+        padding: 0 var(--title-padding);
+        margin: 0;
+        color: var(--border-text-color);
+        background-color: whitesmoke;
+        border: solid var(--border-color) var(--border-width);
+        position: relative;
+        
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            background: var(--border-color);
+            height: var(--border-width);
+            width: 100vw;
+            top: 50%;
+            display: block;
+        }
+
+        &::before {
+            left: 0;
+            transform: translateX(-100%);
+        }
+
+        &::after {
+            right: 0;
+            transform: translateX(100%);
+        }
+    }
+
+    &.text-start {
+        text-align: start;
+        & > h2 {
+            left: calc(var(--padding-value) - var(--title-padding));
+        }
+
+        &:before {
+            display: none;
+        }
+    }
 }

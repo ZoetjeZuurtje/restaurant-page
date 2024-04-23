@@ -30,10 +30,15 @@ function switchTab(tab) {
     }
 }
 
-const navButtons = document.querySelectorAll('header nav button');
+const navButtons = document.querySelectorAll('header .button');
 navButtons.forEach(button => button.addEventListener('click', event => {
     navButtons.forEach(button => button.classList.remove('active'));
-    event.target.classList.add('active');
+
+    let targetElement = event.target;
+    if (event.target.tagName == 'LEGEND') {
+        targetElement = event.target.parentElement;
+    }
+    targetElement.classList.add('active');
     switchTab(event.target.dataset.tab);
 }));
 
