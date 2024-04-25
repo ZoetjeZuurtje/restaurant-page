@@ -1,5 +1,6 @@
 import './index.css';
-import { contentElements } from './index';
+import { homeContent } from './home';
+import { menuContent } from './menu';
 
 function loadContent(elementArray) {
     const contentElement = document.querySelector('#content');
@@ -13,10 +14,10 @@ function loadContent(elementArray) {
 function switchTab(tab) {
     switch (tab) {
         case "menu":
-            //insertContent(menuContent);
+            loadContent(menuContent);
             break;
         case "location":
-            //insertContent(locationContent);
+            loadContent(locationContent);
             break;
         case "job":
             //insertContent(jobContent);
@@ -25,7 +26,7 @@ function switchTab(tab) {
             //insertContent(aboutContent);
             break;
         default:
-            //insertContent(homeContent? should figure out a way to do this elegantly);
+            loadContent(homeContent);
             break;
     }
 }
@@ -35,11 +36,8 @@ navButtons.forEach(button => button.addEventListener('click', event => {
     navButtons.forEach(button => button.classList.remove('active'));
 
     let targetElement = event.target;
-    if (event.target.tagName == 'LEGEND') {
-        targetElement = event.target.parentElement;
-    }
     targetElement.classList.add('active');
-    switchTab(event.target.dataset.tab);
+    switchTab(targetElement.dataset.tab);
 }));
 
-loadContent(contentElements);
+switchTab('home');

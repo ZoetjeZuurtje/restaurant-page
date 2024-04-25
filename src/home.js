@@ -7,11 +7,11 @@ const review = createCard('Review', '<blockquote><p>GREY has the best porridge! 
 const locations = createCard('Locations', '<p>123 Hue street, Chromaville</p>');
 review.style.textAlign = 'start';
 
-const contentElements = [
+const homeContent = [
     createPageTitle('GREY Restaurants'),
     review,
     opensOn,
     locations
 ]
 
-export {contentElements};
+export { homeContent };
