@@ -1,0 +1,41 @@
+:root {
+    --text-color: hsl(0, 0%, 20%);
+
+    line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    line-height: 1.2
+}
+
+p {
+    &.important {
+        font-weight: 600;
+    }
+    &.unimportant {
+        filter: opacity(0.8);
+    }
+}
+
+button {
+    --color: transparent;
+
+    border: solid 1px var(--color);
+    color: var(--color);
+    
+    .important {
+        border: none;
+        background-color: var(--color);
+        color: var(--text-color);   
+    }
+    .unimportant {
+        color: var(--text-color);
+        text-decoration: underline;
+        filter: opacity(0.8);
+    }
+}
