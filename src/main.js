@@ -1,6 +1,7 @@
 import './index.css';
 import { homeContent } from './home';
 import { menuContent } from './menu';
+import { aboutContent } from './about';
 
 function loadContent(elementArray) {
     const contentElement = document.querySelector('#content');
@@ -16,14 +17,8 @@ function switchTab(tab) {
         case "menu":
             loadContent(menuContent);
             break;
-        case "location":
-            loadContent(locationContent);
-            break;
-        case "job":
-            //insertContent(jobContent);
-            break;
         case "about":
-            //insertContent(aboutContent);
+            loadContent(aboutContent);
             break;
         default:
             loadContent(homeContent);

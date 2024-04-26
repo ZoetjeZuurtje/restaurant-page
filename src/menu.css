@@ -1,0 +1,21 @@
+table {
+    border: solid 1px var(--accent);
+    border-collapse: collapse;
+}
+th {
+    background-color: var(--secondary);
+    color: var(--background);
+}
+
+td, th {
+    padding: 10px;
+}
+
+th:nth-child(1),
+td:nth-child(2) {
+    border-right: solid 1px var(--accent);
+}
+
+.component {
+    text-align: start;
+}
